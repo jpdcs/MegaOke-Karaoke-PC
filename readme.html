@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megaoke - User Manual</title>
+    <style>
+        :root {
+            --primary-color: #4a00e0; /* Deep Purple */
+            --secondary-color: #8e2de2; /* Light Purple */
+            --text-color: #333;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --accent: #ff0055;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            background: var(--primary-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 {
+            color: #444;
+            margin-top: 25px;
+            font-size: 1.3rem;
+        }
+
+        /* Requirements Grid */
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .req-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .req-item strong {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+
+        ol, ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        kbd {
+            background-color: #eee;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.2), 0 2px 0 0 rgba(255,255,255,0.7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 2px 5px;
+            white-space: nowrap;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .trial-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 50px;
+        }
+
+        .trial-banner h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 40px 0;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+		
+		.glass-btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			padding: 12px;
+			margin: 10px;
+			width: 50px; /* Circular shape */
+			height: 50px;
+			border-radius: 50%;
+			color: white;
+			font-size: 1.5rem;
+			
+			/* The Glass Effect */
+			background: rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			
+			transition: all 0.3s ease;
+		}
+
+		.glass-btn:hover {
+			background: rgba(255, 255, 255, 0.3);
+			transform: translateY(-5px);
+			box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+			border: 1px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.contact-buttons {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+			margin-top: 20px;
+		}
+
+		/* Tooltip for icon buttons */
+		.glass-btn {
+			position: relative;
+		}
+
+		.glass-btn::after {
+			content: attr(data-label);
+			position: absolute;
+			bottom: -35px;
+			font-size: 0.75rem;
+			background: rgba(0,0,0,0.7);
+			padding: 4px 8px;
+			border-radius: 4px;
+			opacity: 0;
+			transition: opacity 0.3s;
+			pointer-events: none;
+			white-space: nowrap;
+		}
+
+		.glass-btn:hover::after {
+			opacity: 1;
+		}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Megaoke</h1>
+            <div class="subtitle">Your Karaoke PC Companion</div>
+        </header>
+
+        <div class="nav-links">
+            <a href="#req">System Requirements</a>
+            <a href="#english">English Guide</a>
+            <a href="#tagalog">Tagalog Guide</a>
+        </div>
+
+        <section id="req">
+            <h2>💻 System Requirements</h2>
+            <div class="req-grid">
+                <div class="req-item"><strong>OS:</strong> Windows 7/8/10/11 (64-bit), macOS Big Sur 11+, Linux (any version)</div>
+                <div class="req-item"><strong>RAM:</strong> 4GB or higher</div>
+                <div class="req-item"><strong>Storage:</strong> 128GB HDD/SSD</div>
+                <div class="req-item"><strong>CPU:</strong> Intel 4th Gen+ or AMD "A" Series+</div>
+                <div class="req-item"><strong>GPU:</strong> Embedded or Dedicated Graphics Card</div>
+                <div class="req-item"><strong>Extra:</strong> VLC Media Player 64-bit (Optional)</div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="english">
+            <h2>Setup Guide (English)</h2>
+            <h3>How to Setup Megaoke</h3>
+            <ol>
+                <li><strong>Prepare the Files:</strong> Extract <strong>"Sample files.zip"</strong> into your installation folder. This includes song files, banners, graphics, and sound.</li>
+                <li><strong>Open Settings:</strong> Click <strong>Settings</strong> or press <kbd>F9</kbd>.</li>
+                <li><strong>Select Database Path:</strong>
+                    <ul>
+                        <li>Click <strong>Browse</strong> and select the folder containing your song files (<code>.idx</code>, <code>.dat</code>, <code>.megidx</code>, etc.).</li>
+                        <div class="note">You can use the sample files or an empty folder to create your own database if you have many MIDI/Kar files.</div>
+                    </ul>
+                </li>
+                <li><strong>MIDI Controls:</strong> Go to the <strong>MIDI Controls</strong> tab and select your output device (VirtualMidiSynth, WinLive Synth, Sound Canvas, MIDI USB, etc.).</li>
+                <li><strong>Finalize:</strong> Adjust lyrics, metadata, or scoring settings and click <strong>OK</strong>.</li>
+            </ol>
+
+            <h3>Song Database Management</h3>
+            <ul>
+                <li><strong>Add Songs:</strong> Press <kbd>F10</kbd> to add MIDI (Single or Batch). Use the <strong>Language</strong> tab for categorization.</li>
+                <li><strong>New Database:</strong> If using an empty folder, press <kbd>F9</kbd>. When prompted with "No Database Found," click <strong>Yes</strong> to create one.</li>
+            </ul>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="tagalog">
+            <h2>Gabay sa Pag-setup (Tagalog)</h2>
+            <h3>Paano i-setup ang Megaoke?</h3>
+            <ol>
+                <li><strong>Ihanda ang mga Files:</strong> I-extract ang <strong>"Sample files.zip"</strong> sa installation folder (laman nito ang mga kanta, banners, at sounds).</li>
+                <li><strong>Buksan ang Settings:</strong> I-click ang <strong>Settings</strong> o pindutin ang <kbd>F9</kbd>.</li>
+                <li><strong>Piliin ang Database:</strong>
+                    <ul>
+                        <li>I-click ang <strong>Browse</strong> at piliin ang folder ng iyong song files (<code>.idx</code>, <code>.dat</code>, atbp).</li>
+                        <div class="note">Maaaring gamitin ang sample files o isang empty folder kung nais mong gumawa ng sariling database gamit ang MIDI/Kar files.</div>
+                    </ul>
+                </li>
+                <li><strong>MIDI Setup:</strong> Sa <strong>MIDI Controls</strong> tab, piliin ang iyong output device (VirtualMidiSynth, WinLive Synth, MIDI USB, atbp).</li>
+                <li><strong>Tapusin:</strong> Ayusin ang lyrics o scoring settings at i-click ang <strong>OK</strong>.</li>
+            </ol>
+
+            <h3>Pagdagdag ng Kanta</h3>
+            <ul>
+                <li><strong>Mag-add ng Kanta:</strong> Pindutin ang <kbd>F10</kbd> (Single o Batch). Gamitin ang <strong>Language</strong> tab para sa genre at wika.</li>
+                <li><strong>Bagong Database:</strong> Kapag empty folder ang pinili, pindutin ang <kbd>F9</kbd>. I-click ang <strong>Yes</strong> kapag lumabas ang "No Database Found."</li>
+            </ul>
+        </section>
+
+        <div class="trial-banner">
+    <h4>Trial Period Notice</h4>
+    <p style="margin: 5px 0;">This application includes a <strong>60-day Trial</strong> grace period. Please contact the developer if the trial has expired.</p>
+    <p style="font-style: italic; font-size: 0.9rem; opacity: 0.9;">Ang app na ito ay may 60-day free trial. Mangyaring kontakin ang developer kapag expired na ang trial.</p>
+
+    <div class="contact-buttons">
+        <a href="https://www.facebook.com/megaokekrkpc" target="_blank" class="glass-btn" data-label="Facebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        
+        <a href="mailto:tungsahur1430@gmail.com" class="glass-btn" data-label="Email Support">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+        
+        <a href="mailto:pinksgrill08@gmail.com" class="glass-btn" data-label="Secondary Email">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
